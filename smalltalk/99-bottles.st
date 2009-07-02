@@ -1,5 +1,3 @@
-#! /usr/local/bin/gst -f
-
 Integer extend [
     "I couldn't find a reverse iteration, so I made one"
     downto: end do: block [
