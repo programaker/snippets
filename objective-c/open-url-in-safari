@@ -1,0 +1,2 @@
+NSURL *url = [[NSURL alloc] initWithString: @"http://www.cnn.com"];
+[[UIApplication sharedApplication] openURL: url];
