@@ -30,6 +30,7 @@ describe(Value,
         it("should not allow direct assingment to value",
             v = Value mimic(50)        
             fn(v value = 0) should signal(Condition Error ModifyOnFrozen)
+            v should == Value mimic(50)
         )
     )
 )
