@@ -53,4 +53,26 @@ describe("Romans",
             MCDXIV should == 1414        
         )
     )
+    
+    describe("Simple Math Operations",
+        it("should perform the sum of roman numbers",
+            (I + I) should == II
+            (IX + II + IV) should == XV
+        )
+        
+        it("should perform the subtraction of roman numbers",
+            (XX - XIX) should == I
+            (L - XX) should == XXX
+        )
+        
+        it("should perform the multiplication of roman numbers",
+            (V * V) should == XXV
+            (IV * XXV) should == C
+        )
+        
+        it("should perform the division of roman numbers",
+            (XV / III) should == V
+            (C / X) should == X
+        )
+    )
 )
