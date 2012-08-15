@@ -1,45 +1,20 @@
-var errors = [];
+test('Url without parameters', function() {
+  var url = new Url('http://www.youtube.com/');
+  var expected = undefined;
+  var actual = url.param('v');
+  deepEqual(actual, expected, 'should return "undefined" when trying to get a param value by name')
+});
 
-var assertEquals = function(message, expected, actual) {
-    var correct = (expected === actual);
+test('Url with parameters "v" and "feature"', function() {
+  var url = new Url('http://www.youtube.com/watch?v=JLGRkYYmJgQ&feature=g-vrec');
+  var expected = undefined;
+  var actual = undefined;
 
-    if (!correct) {
-        errors.push(message + '; expected = "' + expected + '"; actual = "' + actual + '"');
-    }
-};
+  expected = 'JLGRkYYmJgQ';
+  actual = url.param('v');
+  deepEqual(actual, expected, 'should get the value of param "v" by name');
 
-var testUrlWithoutParams = function() {
-    var url = new Url('http://www.youtube.com/');
-    var expected = undefined;
-    var actual = url.param('v');
-    assertEquals('should return nothing for a url without params', expected, actual);
-};
-
-var testUrlWithParams = function() {
-    var url = new Url('http://www.youtube.com/watch?v=JLGRkYYmJgQ&feature=g-vrec');
-    var expected = undefined;
-    var actual = undefined;
-
-    expected = 'JLGRkYYmJgQ';
-    actual = url.param('v');
-    assertEquals('should return the correct param', expected, actual);
-
-    expected = 'g-vrec';
-    actual = url.param('feature');
-    assertEquals('should return the correct param', expected, actual);
-};
-
-var runTests = function() {
-    errors = [];
-
-    testUrlWithoutParams();
-    testUrlWithParams();
-
-    if (errors.length == 0) {
-        console.log('success');
-    } else {
-        for (var i = 0; i < errors.length; i++) {
-            console.log(errors[i]);
-        }
-    }
-};
+  expected = 'g-vrec';
+  actual = url.param('feature');
+  deepEqual(actual, expected, 'should get the value of param "feature" by name');
+});
