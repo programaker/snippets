@@ -3,10 +3,10 @@ describe('Url without parameters', function() {
 
   it('should return "undefined" when trying to get a param value by name', function() {
     var v = url.param('v');
-    expect(v).toBe(undefined);
+    expect(v).toBeUndefined();
 
     var feature = url.param('feature');
-    expect(feature).toBe(undefined);
+    expect(feature).toBeUndefined();
   });
 });
 
